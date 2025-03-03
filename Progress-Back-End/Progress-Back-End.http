@@ -1,0 +1,6 @@
+@Progress_Back_End_HostAddress = http://localhost:5125
+
+GET {{Progress_Back_End_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
