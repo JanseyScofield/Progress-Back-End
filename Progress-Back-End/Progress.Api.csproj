@@ -12,7 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Progress.Aplication\Progress.Aplication.csproj" />
+    <ProjectReference Include="..\Progress.Aplicatio\Progress.Aplication.csproj" />
+    <ProjectReference Include="..\Progress.Communication\Progress.Communication.csproj" />
+    <ProjectReference Include="..\Progress.Communicatio\Progress.Communication.csproj" />
+    <ProjectReference Include="..\Progress.Exception\Progress.Exception.csproj" />
+    <ProjectReference Include="..\Progress.Infrastructure\Progress.Infrastructure.csproj" />
+    <ProjectReference Include="..\Progress.Infrastructur\Progress.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
