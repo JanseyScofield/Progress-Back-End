@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Progress.Communication\Progress.Communication.csproj" />
+    <ProjectReference Include="..\Progress.Exception\Progress.Exception.csproj" />
     <ProjectReference Include="..\Progress.Infrastructure\Progress.Infrastructure.csproj" />
   </ItemGroup>
 
