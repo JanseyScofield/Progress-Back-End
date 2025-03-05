@@ -1,4 +1,5 @@
 ﻿using Progress.Communication.Requests;
+using Progress.Communication.Responses;
 using Progress.Infrastructure;
 using Progress.Infrastructure.Entitites;
 using Progress.Exception;
@@ -8,7 +9,7 @@ namespace Progress.Aplication.UseCases.Clientes.Register
 {
     public class RegisterClientesUseCase
     {
-        public void Execute(RequestRegisterClienteJson request)
+        public ResponseShortClientesJson Execute(RequestRegisterClienteJson request)
         {
             Validate(request);
             var dbContext = new ProgressDbContext();
@@ -25,6 +26,16 @@ namespace Progress.Aplication.UseCases.Clientes.Register
 
             dbContext.Clientes.Add(entity);
             dbContext.SaveChanges();
+
+            return new ResponseShortClientesJson
+            {
+                CNPJ = entity.CNPJ,
+                Endereco = entity.Endereco,
+                RazaoSocial =  entity.RazaoSocial,
+                NomeFantasia = entity.NomeFantasia,
+                Telefone = entity.Telefone,
+                ProximaVisita = entity.ProximaVisita.Date
+            };
         }
 
         private void Validate(RequestRegisterClienteJson request)
@@ -51,7 +62,7 @@ namespace Progress.Aplication.UseCases.Clientes.Register
 
             if (string.IsNullOrWhiteSpace(request.Telefone) || request.Telefone.Length != 8)
             {
-                throw new ClientesException(ResourceErrorMessages.ENDERECO_INVALIDO);
+                throw new ClientesException(ResourceErrorMessages.TELEFONE_INVALIDO);
             }
 
             if (request.FlagAVista > 1 || request.FlagAVista < 0)
