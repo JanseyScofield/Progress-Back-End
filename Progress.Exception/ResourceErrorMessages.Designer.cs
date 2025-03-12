@@ -61,6 +61,15 @@ namespace Progress.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Cliente não encontrado..
+        /// </summary>
+        public static string CLIENTE_NAO_ENCONTRADO {
+            get {
+                return ResourceManager.GetString("CLIENTE_NAO_ENCONTRADO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a CNPJ inserido não é válido. Digite novamente..
         /// </summary>
         public static string CNPJ_INVALIDO {

@@ -135,4 +135,7 @@
   <data name="FLAG_INVALIDA" xml:space="preserve">
     <value>As flags devem ser passadas como 1 ou 0.  Digite novamente</value>
   </data>
+  <data name="CLIENTE_NAO_ENCONTRADO" xml:space="preserve">
+    <value>Cliente não encontrado.</value>
+  </data>
 </root>
