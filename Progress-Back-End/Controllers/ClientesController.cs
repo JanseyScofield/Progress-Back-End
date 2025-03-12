@@ -2,7 +2,10 @@
 using Progress.Aplication.UseCases.Clientes.Get;
 using Progress.Aplication.UseCases.Clientes.Register;
 using Progress.Communication.Requests;
+using Progress.Communication.Responses;
 using Progress.Exception.ExceptionBase;
+using Progress.Exception.Exceptions;
+
 namespace Progress_Back_End.Controllers
 {
     [Route("progress/clientes")]
@@ -10,6 +13,8 @@ namespace Progress_Back_End.Controllers
     public class ClientesController : ControllerBase
     {
         [HttpPost("registrar")]
+        [ProducesResponseType(typeof(RequestRegisterClienteJson), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult AdicionarClientes([FromBody] RequestRegisterClienteJson request)
         {
             var useCases = new RegisterClientesUseCase();
@@ -28,6 +33,8 @@ namespace Progress_Back_End.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(ResponseClientesJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult ListarClientes()
         {
             try{
@@ -40,6 +47,32 @@ namespace Progress_Back_End.Controllers
                 return BadRequest(ex.Message);
             }
             
+        }
+
+        [HttpGet]
+        [Route ("{cnpj}")]
+        [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        public IActionResult BuscarClienteCNPJ(string cnpj)
+        {
+            try
+            {
+                var useCase = new GetClientesByCNPJUseCase();
+                var response = useCase.Execute(cnpj);
+                return Ok(response);
+            }
+            catch (ClienteNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ClientesException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+
         }
     }
 }
