@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Progress.Aplication.UseCases.Clientes.Delete;
 using Progress.Aplication.UseCases.Clientes.Get;
 using Progress.Aplication.UseCases.Clientes.Register;
 using Progress.Communication.Requests;
@@ -37,8 +38,9 @@ namespace Progress_Back_End.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult ListarClientes()
         {
-            try{
-                var useCase = new GetAllClientesUseCase();
+            var useCase = new GetAllClientesUseCase();
+            try
+            {
                 var response = useCase.Execute();
                 return Ok(response);
             }
@@ -56,9 +58,9 @@ namespace Progress_Back_End.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         public IActionResult BuscarClienteCNPJ(string cnpj)
         {
+            var useCase = new GetClientesByCNPJUseCase();
             try
             {
-                var useCase = new GetClientesByCNPJUseCase();
                 var response = useCase.Execute(cnpj);
                 return Ok(response);
             }
@@ -70,9 +72,39 @@ namespace Progress_Back_End.Controllers
             {
                 return BadRequest(ex.Message);
             }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
 
+        }
 
+        [HttpDelete]
+        [Route("{cnpj}")]
+        [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        public IActionResult DeletarClienteCNPJ(string cnpj)
+        {
+            var useCase = new DeleteClienteUseCase();
+            try
+            {
+                var response = useCase.Execute(cnpj);
+                return Ok(response);
+            }
+            catch (ClienteNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ClientesException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
