@@ -52,7 +52,7 @@ namespace Progress_Back_End.Controllers
         }
 
         [HttpGet]
-        [Route ("{cnpj}")]
+        [Route ("buscar/{cnpj}")]
         [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
@@ -80,6 +80,25 @@ namespace Progress_Back_End.Controllers
 
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        public IActionResult BuscarClienteID(int id)
+        {
+            try
+            {
+                var useCase = new GetClientesByIdUseCase();
+                var cliente = useCase.Execute(id);
+                return Ok(cliente);
+            }
+            catch (ClienteNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+
         [HttpDelete]
         [Route("{cnpj}")]
         [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
@@ -105,6 +124,16 @@ namespace Progress_Back_End.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPost]
+        [Route("atualizar/{id}")]
+        [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        public IActionResult AtualizarClienteID (int id, RequestUpdateClienteJson request)
+        {
+            return Ok();
         }
     }
 }
