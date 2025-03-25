@@ -141,4 +141,10 @@
   <data name="DATA_PROXIMA_VISITA_INVALIDA" xml:space="preserve">
     <value>A data da próxima visita não pode ser antes do dia de hoje.</value>
   </data>
+  <data name="NOME_PRODUTO_VAZIO" xml:space="preserve">
+    <value>O nome do produto não pode estar vazio ou nulo. Digite novamente.</value>
+  </data>
+  <data name="DESCRICAO_VAZIA" xml:space="preserve">
+    <value>A descrição não pode estar vazia. Digite novamente.</value>
+  </data>
 </root>

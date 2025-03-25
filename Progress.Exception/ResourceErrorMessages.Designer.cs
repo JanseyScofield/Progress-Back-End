@@ -88,6 +88,15 @@ namespace Progress.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A descrição não pode estar vazia. Digite novamente..
+        /// </summary>
+        public static string DESCRICAO_VAZIA {
+            get {
+                return ResourceManager.GetString("DESCRICAO_VAZIA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Endereço não pode ser vazio ou nulo. Digite novamente..
         /// </summary>
         public static string ENDERECO_INVALIDO {
@@ -111,6 +120,15 @@ namespace Progress.Exception {
         public static string NOME_FANTASIA_INVALIDO {
             get {
                 return ResourceManager.GetString("NOME_FANTASIA_INVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do produto não pode estar vazio ou nulo. Digite novamente..
+        /// </summary>
+        public static string NOME_PRODUTO_VAZIO {
+            get {
+                return ResourceManager.GetString("NOME_PRODUTO_VAZIO", resourceCulture);
             }
         }
         
