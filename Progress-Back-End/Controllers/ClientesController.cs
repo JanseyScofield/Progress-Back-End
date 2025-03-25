@@ -2,6 +2,7 @@
 using Progress.Aplication.UseCases.Clientes.Delete;
 using Progress.Aplication.UseCases.Clientes.Get;
 using Progress.Aplication.UseCases.Clientes.Register;
+using Progress.Aplication.UseCases.Clientes.Update;
 using Progress.Communication.Requests;
 using Progress.Communication.Responses;
 using Progress.Exception.ExceptionBase;
@@ -96,8 +97,36 @@ namespace Progress_Back_End.Controllers
             {
                 return NotFound(ex.Message);
             }
-        }
 
+        }
+         
+        [HttpPut]
+        [Route("atualizar/{id}")]
+        [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        public IActionResult AtualizarClienteID(int id, [FromBody] RequestUpdateClienteJson request)
+        {
+
+            try
+            {
+                var useCase = new UpdateClienteUseCase();
+                var response = useCase.Execute(id, request);
+                return Ok(response);
+            }
+            catch (ClienteNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ClientesException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpDelete]
         [Route("{cnpj}")]
@@ -124,16 +153,6 @@ namespace Progress_Back_End.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
-
-        [HttpPost]
-        [Route("atualizar/{id}")]
-        [ProducesResponseType(typeof(ResponseClienteDetailsJson), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        public IActionResult AtualizarClienteID (int id, RequestUpdateClienteJson request)
-        {
-            return Ok();
         }
     }
 }

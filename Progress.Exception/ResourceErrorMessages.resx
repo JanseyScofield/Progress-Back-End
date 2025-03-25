@@ -138,4 +138,7 @@
   <data name="CLIENTE_NAO_ENCONTRADO" xml:space="preserve">
     <value>Cliente não encontrado.</value>
   </data>
+  <data name="DATA_PROXIMA_VISITA_INVALIDA" xml:space="preserve">
+    <value>A data da próxima visita não pode ser antes do dia de hoje.</value>
+  </data>
 </root>
