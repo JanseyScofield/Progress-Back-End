@@ -1,6 +1,6 @@
 ﻿namespace Progress.Infrastructure.Entitites
 {
-    public class Produtos
+    public class Produto
     {
 
         public int ID { get; set; }

@@ -7,7 +7,7 @@ namespace Progress.Infrastructure
     public class ProgressDbContext : DbContext
     {
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Produtos> Produtos { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite($"Data Source={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Progress", "progress.db")}");
