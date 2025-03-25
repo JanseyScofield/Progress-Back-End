@@ -9,7 +9,7 @@ namespace Progress.Aplication.UseCases.Produtos.Register
 {
     public class RegisterProdutoUseCase
     {
-        public ResponseProdutoDetailJson Execute(RequestRegisterProdutoJson request)
+        public ResponseProdutoDetailsJson Execute(RequestRegisterProdutoJson request)
         {
             Validate(request);
 
@@ -21,7 +21,7 @@ namespace Progress.Aplication.UseCases.Produtos.Register
             dbContext.Produtos.Add(entity);
             dbContext.SaveChanges();
 
-            return new ResponseProdutoDetailJson { 
+            return new ResponseProdutoDetailsJson { 
                 ID = entity.ID,
                 Nome = entity.Nome,
                 Descricao = entity.Descricao

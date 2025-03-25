@@ -1,6 +1,6 @@
 ﻿namespace Progress.Communication.Responses
 {
-    public class ResponseProdutoDetailJson
+    public class ResponseProdutoDetailsJson
     {
         public int ID { get; set; }
         public string Nome { get; set; }

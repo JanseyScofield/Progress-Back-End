@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Progress.Aplication.UseCases.Produtos.Get;
 using Progress.Aplication.UseCases.Produtos.Register;
 using Progress.Communication.Requests;
 using Progress.Communication.Responses;
@@ -10,8 +11,8 @@ namespace Progress_Back_End.Controllers
     [ApiController]
     public class ProdutosController : ControllerBase
     {
-        [HttpPost]
-        [ProducesResponseType(typeof(ResponseProdutoDetailJson),  StatusCodes.Status201Created)]
+        [HttpPost("registrar")]
+        [ProducesResponseType(typeof(ResponseProdutoDetailsJson),  StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string),  StatusCodes.Status400BadRequest)]
         public IActionResult AdicionarProdutos([FromBody] RequestRegisterProdutoJson request)
         {
@@ -24,6 +25,22 @@ namespace Progress_Back_End.Controllers
             catch (ProdutosException ex)
             {
                 return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseProdutosDetailsJson), StatusCodes.Status200OK)]
+        public IActionResult ListarProdutos()
+        {
+            try
+            {
+                var useCase = new GetAllProdutosUseCase();
+                var response = useCase.Execute();
+                return Ok(response);
             }
             catch (Exception ex)
             {
