@@ -10,7 +10,9 @@ namespace Progress.Aplication.UseCases.Produtos.Get
     {
         public ResponseProdutoDetailsJson Execute(int id)
         {
-            Validate(id);
+            var utils = new Utils();
+            utils.ValidarCodigoProduto(id);
+
             var dbContext = new ProgressDbContext();
             var produto = dbContext.Produtos.FirstOrDefault(p => p.ID == id);
 
@@ -24,14 +26,6 @@ namespace Progress.Aplication.UseCases.Produtos.Get
                 Nome = produto.Nome,
                 Descricao = produto.Descricao
             };
-        }
-
-        private void Validate(int id)
-        {
-            if (id <= 0)
-            {
-                throw new ProdutosException(ResourceErrorMessages.CODIGO_PRODUTO_INVALIDO);
-            }
         }
     }
 }

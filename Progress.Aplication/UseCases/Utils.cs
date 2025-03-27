@@ -1,4 +1,7 @@
-﻿namespace Progress.Aplication.UseCases
+﻿using Progress.Exception.ExceptionBase;
+using Progress.Exception;
+
+namespace Progress.Aplication.UseCases
 {
     public class Utils
     {
@@ -56,6 +59,14 @@
             segundoDigito = restoDiv < 2 ? 0 : constanteCalculo - restoDiv;
 
             return segundoDigito == (CNPJ[13] - '0');
+        }
+        public void ValidarCodigoProduto(int id)
+        {
+            if (id <= 0)
+            {
+                throw new ProdutosException(ResourceErrorMessages.CODIGO_PRODUTO_INVALIDO);
+            }
+
         }
     }
 }
