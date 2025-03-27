@@ -147,4 +147,10 @@
   <data name="DESCRICAO_VAZIA" xml:space="preserve">
     <value>A descrição não pode estar vazia. Digite novamente.</value>
   </data>
+  <data name="PRODUTO_NAO_ENCONTRADO" xml:space="preserve">
+    <value>Produto não encontrado. Digite outro código.</value>
+  </data>
+  <data name="CODIGO_PRODUTO_INVALIDO" xml:space="preserve">
+    <value>O código do produto é  inválido. Digite novamente.</value>
+  </data>
 </root>

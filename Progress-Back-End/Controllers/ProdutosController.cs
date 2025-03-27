@@ -4,6 +4,7 @@ using Progress.Aplication.UseCases.Produtos.Register;
 using Progress.Communication.Requests;
 using Progress.Communication.Responses;
 using Progress.Exception.ExceptionBase;
+using Progress.Exception.Exceptions;
 
 namespace Progress_Back_End.Controllers
 {
@@ -11,7 +12,8 @@ namespace Progress_Back_End.Controllers
     [ApiController]
     public class ProdutosController : ControllerBase
     {
-        [HttpPost("registrar")]
+        [HttpPost]
+        [Route("registrar")]
         [ProducesResponseType(typeof(ResponseProdutoDetailsJson),  StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string),  StatusCodes.Status400BadRequest)]
         public IActionResult AdicionarProdutos([FromBody] RequestRegisterProdutoJson request)
@@ -47,5 +49,28 @@ namespace Progress_Back_End.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(ResponseProdutoDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public IActionResult BuscarProdutoId(int id) 
+        {
+            try {
+                var useCase = new GetProdutoByIdUseCase();
+                var response = useCase.Execute(id);
+                return Ok(response);
+            }
+            catch (ProdutoNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ProdutosException ex) 
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

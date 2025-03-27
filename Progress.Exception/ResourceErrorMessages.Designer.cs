@@ -79,6 +79,15 @@ namespace Progress.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O código do produto é  inválido. Digite novamente..
+        /// </summary>
+        public static string CODIGO_PRODUTO_INVALIDO {
+            get {
+                return ResourceManager.GetString("CODIGO_PRODUTO_INVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A data da próxima visita não pode ser antes do dia de hoje..
         /// </summary>
         public static string DATA_PROXIMA_VISITA_INVALIDA {
@@ -129,6 +138,15 @@ namespace Progress.Exception {
         public static string NOME_PRODUTO_VAZIO {
             get {
                 return ResourceManager.GetString("NOME_PRODUTO_VAZIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Produto não encontrado. Digite outro código..
+        /// </summary>
+        public static string PRODUTO_NAO_ENCONTRADO {
+            get {
+                return ResourceManager.GetString("PRODUTO_NAO_ENCONTRADO", resourceCulture);
             }
         }
         

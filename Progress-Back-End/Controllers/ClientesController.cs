@@ -48,7 +48,7 @@ namespace Progress_Back_End.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }
+            } 
             
         }
 
