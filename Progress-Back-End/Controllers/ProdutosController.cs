@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Progress.Aplication.UseCases.Produtos.Delete;
 using Progress.Aplication.UseCases.Produtos.Get;
 using Progress.Aplication.UseCases.Produtos.Register;
 using Progress.Communication.Requests;
@@ -72,5 +73,27 @@ namespace Progress_Back_End.Controllers
             }
         }
 
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(ResponseProdutoDetailsJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public IActionResult DeletarProduto(int id) 
+        {
+            try
+            {
+                var useCase = new DeleteProdutoUseCase();
+                var response = useCase.Execute(id);
+                return Ok(response);
+            }
+            catch (ProdutoNotFoundException ex) 
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ProdutosException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
