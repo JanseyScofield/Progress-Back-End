@@ -56,5 +56,27 @@ namespace Progress_Back_End.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("cliente/{cnpj}")]
+        [ProducesResponseType(typeof(ResponseProdutosValoresJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public IActionResult ListarProdutosClienteCNPJ(string cnpj)
+        {
+            try
+            {
+                var useCase = new GetAllProdutosByClienteCNPJ();
+                var response = useCase.Execute(cnpj);
+                return Ok(response);
+            }
+            catch (ClienteNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
