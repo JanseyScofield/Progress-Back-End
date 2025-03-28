@@ -7,7 +7,7 @@ using Progress.Infrastructure.Entitites;
 using Progress.Exception;
 using Progress.Exception.ExceptionBase;
 
-namespace Progress.Aplication.UseCases.ClientesProdutos
+namespace Progress.Aplication.UseCases.ClientesProdutos.Register
 {
     public class RegisterClienteProdutoUseCase
     {

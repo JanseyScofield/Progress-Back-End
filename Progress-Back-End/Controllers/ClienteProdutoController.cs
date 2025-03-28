@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Progress.Aplication.UseCases.ClientesProdutos;
+using Progress.Aplication.UseCases.ClientesProdutos.Get;
+using Progress.Aplication.UseCases.ClientesProdutos.Register;
 using Progress.Communication.Requests.ClientesProdutos;
 using Progress.Communication.Responses.ClientesProdutos;
 using Progress.Exception.ExceptionBase;
@@ -23,7 +25,7 @@ namespace Progress_Back_End.Controllers
             {
                 var useCase = new RegisterClienteProdutoUseCase();
                 var response = useCase.Execute(request);
-                return Ok(response);
+                return Created(string.Empty, response);
             }
             catch (ClienteNotFoundException ex)
             {
@@ -37,5 +39,22 @@ namespace Progress_Back_End.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ResponseClientesProdutosJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public IActionResult ListarClienteProduto() 
+        {
+            try
+            {
+                var useCase = new GetAllClientesProdutosUseCase();
+                var response = useCase.Execute();
+                return Ok(response);
+            }
+            catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
