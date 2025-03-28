@@ -1,9 +1,9 @@
-﻿using Progress.Communication.Requests;
-using Progress.Communication.Responses;
-using Progress.Infrastructure;
+﻿using Progress.Infrastructure;
 using Progress.Infrastructure.Entitites;
 using Progress.Exception;
 using Progress.Exception.ExceptionBase;
+using Progress.Communication.Requests.Clientes;
+using Progress.Communication.Responses.Clientes;
 
 namespace Progress.Aplication.UseCases.Clientes.Register
 {

@@ -167,5 +167,14 @@ namespace Progress.Exception {
                 return ResourceManager.GetString("TELEFONE_INVALIDO", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Valor para o produto inváldio, não pode ser menor ou igual a zero. Digite novamente..
+        /// </summary>
+        public static string VALOR_PRODUTO_INVALIDO {
+            get {
+                return ResourceManager.GetString("VALOR_PRODUTO_INVALIDO", resourceCulture);
+            }
+        }
     }
 }

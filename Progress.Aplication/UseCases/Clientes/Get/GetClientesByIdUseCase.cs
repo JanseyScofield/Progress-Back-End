@@ -1,5 +1,4 @@
-﻿using Progress.Communication.Responses;
-using Progress.Exception.Exceptions;
+﻿using Progress.Exception.Exceptions;
 using Progress.Exception;
 using Progress.Infrastructure;
 using System;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Progress.Communication.Responses.Clientes;
 
 namespace Progress.Aplication.UseCases.Clientes.Get
 {

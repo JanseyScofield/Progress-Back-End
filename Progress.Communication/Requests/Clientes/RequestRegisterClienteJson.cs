@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Progress.Communication.Requests
+namespace Progress.Communication.Requests.Clientes
 {
     public class RequestRegisterClienteJson
     {

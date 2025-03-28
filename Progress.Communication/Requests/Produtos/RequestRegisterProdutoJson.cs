@@ -1,4 +1,4 @@
-﻿namespace Progress.Communication.Requests
+﻿namespace Progress.Communication.Requests.Produtos
 {
     public class RequestRegisterProdutoJson
     {

@@ -6,6 +6,5 @@
         public int IdCliente { get; set; }
         public int IdProduto{ get; set; }
         public decimal Valor { get; set; }
-
     }
 }

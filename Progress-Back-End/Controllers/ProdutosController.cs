@@ -2,8 +2,8 @@
 using Progress.Aplication.UseCases.Produtos.Delete;
 using Progress.Aplication.UseCases.Produtos.Get;
 using Progress.Aplication.UseCases.Produtos.Register;
-using Progress.Communication.Requests;
-using Progress.Communication.Responses;
+using Progress.Communication.Requests.Produtos;
+using Progress.Communication.Responses.Produtos;
 using Progress.Exception.ExceptionBase;
 using Progress.Exception.Exceptions;
 

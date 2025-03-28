@@ -1,4 +1,5 @@
 ﻿using Progress.Communication.Responses;
+using Progress.Communication.Responses.Clientes;
 using Progress.Infrastructure;
 
 namespace Progress.Aplication.UseCases.Clientes.Get

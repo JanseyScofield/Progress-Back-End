@@ -3,8 +3,8 @@ using Progress.Aplication.UseCases.Clientes.Delete;
 using Progress.Aplication.UseCases.Clientes.Get;
 using Progress.Aplication.UseCases.Clientes.Register;
 using Progress.Aplication.UseCases.Clientes.Update;
-using Progress.Communication.Requests;
-using Progress.Communication.Responses;
+using Progress.Communication.Requests.Clientes;
+using Progress.Communication.Responses.Clientes;
 using Progress.Exception.ExceptionBase;
 using Progress.Exception.Exceptions;
 

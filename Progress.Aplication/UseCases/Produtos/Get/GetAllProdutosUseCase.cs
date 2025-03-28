@@ -1,4 +1,4 @@
-﻿using Progress.Communication.Responses;
+﻿using Progress.Communication.Responses.Produtos;
 using Progress.Infrastructure;
 
 namespace Progress.Aplication.UseCases.Produtos.Get

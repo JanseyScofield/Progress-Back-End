@@ -1,7 +1,8 @@
-﻿namespace Progress.Communication.Requests
+﻿namespace Progress.Communication.Responses.Clientes
 {
-    public class RequestUpdateClienteJson
+    public class ResponseClienteDetailsJson
     {
+        public int Id { get; set; }
         public string CNPJ { get; set; }
         public string Endereco { get; set; }
         public string RazaoSocial { get; set; }
@@ -11,6 +12,5 @@
         public int FlagAVista { get; set; }
         public int FlagAPrazo { get; set; }
         public DateTime ProximaVisita { get; set; }
-        
     }
 }

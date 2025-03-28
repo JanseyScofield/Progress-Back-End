@@ -1,5 +1,5 @@
 ﻿using Progress.Aplication.UseCases.Clientes.Get;
-using Progress.Communication.Responses;
+using Progress.Communication.Responses.Clientes;
 using Progress.Exception;
 using Progress.Exception.ExceptionBase;
 using Progress.Infrastructure;

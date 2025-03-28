@@ -1,4 +1,4 @@
-﻿namespace Progress.Communication.Responses
+﻿namespace Progress.Communication.Responses.Produtos
 {
     public class ResponseProdutosDetailsJson
     {

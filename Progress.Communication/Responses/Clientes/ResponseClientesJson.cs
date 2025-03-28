@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Progress.Communication.Responses
+namespace Progress.Communication.Responses.Clientes
 {
     public class ResponseClientesJson
     {

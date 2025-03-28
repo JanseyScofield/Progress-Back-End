@@ -1,5 +1,5 @@
 ﻿using Progress.Aplication.UseCases.Produtos.Get;
-using Progress.Communication.Responses;
+using Progress.Communication.Responses.Produtos;
 using Progress.Exception.ExceptionBase;
 using Progress.Infrastructure;
 using Progress.Infrastructure.Entitites;

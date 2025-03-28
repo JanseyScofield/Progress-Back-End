@@ -153,4 +153,7 @@
   <data name="CODIGO_PRODUTO_INVALIDO" xml:space="preserve">
     <value>O código do produto é  inválido. Digite novamente.</value>
   </data>
+  <data name="VALOR_PRODUTO_INVALIDO" xml:space="preserve">
+    <value>Valor para o produto inváldio, não pode ser menor ou igual a zero. Digite novamente.</value>
+  </data>
 </root>
